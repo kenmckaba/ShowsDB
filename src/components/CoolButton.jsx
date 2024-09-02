@@ -20,12 +20,17 @@ import {
 } from '@chakra-ui/react'
 
 export default function CoolButton(props) {
-  const { variant, children, onClick, isLoading } = props
+  const { variant, children, onClick, isLoading, style } = props
 
-  const charkaStyle = variant === 'small' ? 'sm' : 'lg'
+  const chakraStyle = variant === 'small' ? 'sm' : 'lg'
 
   return (
-    <Button size={charkaStyle} onClick={onClick} isLoading={isLoading}>
+    <Button
+      size={chakraStyle}
+      style={style}
+      onClick={onClick}
+      isLoading={isLoading}
+    >
       {children}
     </Button>
   )

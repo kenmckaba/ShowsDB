@@ -26,7 +26,6 @@ import CoolButton from './CoolButton'
 import Episodes from './Episodes'
 
 export default function SearchBox() {
-  const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [descModalShow, setDescModalShow] = useState(false)
@@ -72,14 +71,12 @@ export default function SearchBox() {
       setSearchResults(results)
     } catch (error) {
       setIsLoading(false)
-      setSearchTerm(null)
       setSearchResults([])
       doErrorToast()
     }
   }
 
   const onChange = (val) => {
-    setSearchTerm(val.target.value)
     doSearch(val.target.value)
   }
 
@@ -89,23 +86,32 @@ export default function SearchBox() {
         <HStack w="100%" justifyContent="center" mb="20px">
           <Flex
             alignItems="center"
+            justifyContent="space-between"
             h="50px"
             w="70%"
             backgroundColor="brand.shade"
             borderRadius="8px"
+            border="1px solid red"
           >
-            <SearchIcon marginLeft="5" />
+            <SearchIcon margin="5" />
             <DebounceInput
               placeholder="Search show titles"
               onChange={onChange}
               minLength={2}
               debounceTimeout={1000}
+              style={{ width: '100%', 'padding-left': '5px', autofocus: true }}
+              autoFocus
             />
             {/* <Input placeholder="Search show titles" onChange={onChange} /> */}
+            <CoolButton
+              variant="large"
+              isLoading={isLoading}
+              onClick={onChange}
+              style={{ 'margin-left': '10px' }}
+            >
+              Search
+            </CoolButton>
           </Flex>
-          <CoolButton variant="large" isLoading={isLoading} onClick={doSearch}>
-            Search
-          </CoolButton>
         </HStack>
         {
           // controls to test isLoading and isApiError handling

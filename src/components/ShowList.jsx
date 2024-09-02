@@ -13,7 +13,7 @@ export default function ShowList({
       {shows.map((show) => (
         <Show
           showInfo={show}
-          key={show.id}
+          key={show.show.id}
           handleShowClick={handleShowClick}
           handleEpisodesClick={handleEpisodesClick}
         /> // apparently show.id is not always unique

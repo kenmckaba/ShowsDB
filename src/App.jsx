@@ -9,7 +9,6 @@ function App() {
       <Header />
       <Flex
         id="overall"
-        h="calc(100vh - 48px)"
         w="100%"
         borderWidth="40px"
         padding="20px 60px"
