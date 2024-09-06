@@ -99,7 +99,7 @@ export default function SearchBox() {
               onChange={onChange}
               minLength={2}
               debounceTimeout={1000}
-              style={{ width: '100%', 'padding-left': '5px', autofocus: true }}
+              style={{ width: '100%', 'padding-left': '5px' }}
               autoFocus
             />
             {/* <Input placeholder="Search show titles" onChange={onChange} /> */}
